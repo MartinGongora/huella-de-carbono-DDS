@@ -1,0 +1,14 @@
+package domain.model.usuarios;
+
+public enum Permiso {
+    CREAR_ORGANIZACION,
+    VER_ORGANIZACION,
+    EDITAR_ORGANIZACION,
+    ELIMIAR_ORGANIZACION,
+    CREAR_MIEMBRO,
+    VER_MIEMBRO,
+    EDITAR_MIEMBRO,
+    ELIMIAR_MIEMBRO,
+    VER_AGENTE,
+    EDITAR_AGENTE,
+}

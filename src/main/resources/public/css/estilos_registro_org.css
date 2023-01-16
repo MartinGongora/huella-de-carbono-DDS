@@ -1,0 +1,294 @@
+html {
+    max-width: 100%;
+    max-height: 100%;
+
+    overflow: hidden;
+ }
+
+header{
+    background-color:#1C1C1B;
+    height: 70px;
+    width: 100vw;
+    max-width: 100%;
+    font-size: 24px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,.6);
+    -webkit-animation: slide 3s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 3s forwards;
+    animation-delay: 2s;
+}
+
+header div{
+    display: block;
+    height: 100%;
+    width: 100%;
+    font-family: 'Gentium Plus', serif;
+    color: #E9E5DE;
+}
+
+.img_logo_outline{
+    float: left;
+    height: 90%;
+    margin-top: 7px;
+    padding-left: 14px;
+}
+
+.org_icono{
+    float: right;
+    margin-top: 10px;
+    padding-right: 14px;
+}
+
+nav {
+    display: inline;
+    float: right;
+    margin-top: 25px;
+    margin-right: 20px;
+}
+
+.p_Titulo {
+    display: inline;
+    float: left;
+    margin-top: 25px;
+    margin-left: 20px;
+}
+
+nav ul{
+    display: inline-block;
+}
+
+nav ul li{
+    display: inline-block;
+    padding: 0 10px 0 20px;
+
+}
+
+body{
+    background-color:#1C1C1B;
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.home_BG{
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.home_BG2{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    opacity: 0;
+    animation: fadeBG 9s 3s infinite;
+    -webkit-animation: fadeBG 9s 3s infinite;
+    z-index: -1;
+}
+
+.logo_Body {
+    height: 20vw;
+    position: absolute;
+    top: 15vw;
+    left: 8vw;
+    animation: fadein 3s;
+    -webkit-animation: fadein 3s; 
+}
+
+
+.titulo_Body{
+    font-family: 'Gentium Plus', serif;
+    color: #E9E5DE;
+    font-size: 4.5vw;
+    position: absolute;
+    top: 21vw;
+    left: 57vw;
+    opacity: 0;
+    animation: fadein 3s 1s;
+    animation-fill-mode: forwards;
+    -webkit-animation: fadein 3s 1s;
+    -webkit-animation-fill-mode: forwards; 
+
+}
+
+
+.header_nav_login {
+    display: inline;
+    float: right;
+    margin-top: 25px;
+    margin-right: 10px;
+}
+
+/* Estilos Registro */
+.form_register{
+    background-color: #1C1C1B;
+    border-radius: 20px;
+    width: 750px;
+    height: 660px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    text-align: center;
+    grid-auto-rows: 45px;
+    vertical-align: middle;
+}
+
+.form_titulo_reg {
+    font-family: 'Gentium Plus', serif;
+    font-size: 25px;
+    text-align: left;
+    margin-left: 50px;
+    font-weight: 700;
+    margin-top: 20px;
+    color: #E9E5DE;
+    display: block;
+}
+
+.container_vinculacion {
+    text-align: left;
+    display: flex;
+}
+
+.button_add_sector {
+    font-family: 'Gentium Plus', serif;
+    width: 62px;
+    height: 15px;
+    border-radius: 15px;
+    border:#E9E5DE 1px solid;
+    font-size: 15px;
+    text-align: left;
+    margin-left: 50px;
+    margin-top: 10px;
+    color: #E9E5DE;
+    background-color: #1C1C1B;
+    padding: 7px;
+}
+
+.button_reg {
+    font-family: 'Gentium Plus', serif;
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: right;
+    color: #E9E5DE;
+    margin-right: 50px;
+}
+
+.options_reg {
+    font-family: 'Gentium Plus', serif;
+    width: 23%;
+    height: 70%;
+    border-radius: 10px;
+    font-size: 15px;
+    text-align: left;
+    margin-left: 50px;
+    margin-top: 12px;
+    color: #E9E5DE;
+    background-color: #1C1C1B;
+}
+
+.form_subtitulo_reg {
+    font-family: 'Gentium Plus', serif;
+    font-size: 20px;
+    text-align: left;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-left: 50px;
+    color: #E9E5DE;
+    display: block;
+}
+
+.text_input_reg{
+    width: 87%;
+    margin-left: 50px;
+    outline: 0;
+    border: 0;
+    background: transparent;
+    border-bottom: 1px solid #E9E5DE;
+    font-size: 15px;
+    font-family: 'Gentium Plus', serif;
+    color: #E9E5DE;
+}
+
+.form_login{
+    background-color: #E9E5DE;
+    border-radius: 30px;
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    text-align: center;
+    grid-auto-rows: 50px;
+    vertical-align: middle;
+}
+
+.form_titulo{
+    font-family: 'Lalezar', cursive;
+    font-size: 35px;
+    text-align: center;
+    margin-top: 20px;
+    color: #1C1C1B;
+    display: block;
+}
+
+.form_input .text_input{
+    width: 80%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid #1C1C1B;
+    font-size: 20px;
+    font-family: 'Gentium Plus', serif;
+    color: #1C1C1B;
+    display: inline-block;
+
+}
+
+.form_btns li{
+    font-family: 'Gentium Plus', serif;
+    font-weight: 700;
+    font-size: 25px;
+    color: #1C1C1B;
+    display: inline-block;
+    padding: 0px 20px 0px;
+}
+
+@-webkit-keyframes slide {
+    0%{top: -60px;}
+    100% { top: 0px; }
+}
+
+@keyframes slide {
+    0%{top: -60px;}
+    100% { top: 0; }
+}
+
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-webkit-keyframes fadeBG {
+    0% {opacity: 0;}
+    33% {opacity: 1;}
+    66% {opacity: 1;}
+    100% {opacity: 0;}
+}
+@keyframes fadeBG {
+    0% {opacity: 0;}
+    33% {opacity: 1;}
+    66% {opacity: 1;}
+    100% {opacity: 0;}
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> CO2 / Sistema Nacional Huella de Carbono </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/estilos_guia.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus&family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div>
+            {{#if usuario.rol.id 2}}
+            <a href="/miembros/{{usuario.nombreDeUsuario}}" name="Home">
+            <img class="img_logo_outline" src="/img/logo_outline.png"
+             onmouseover="this.src='/img/logo_relleno.png'"
+             onmouseout="this.src='/img/logo_outline.png'" alt="logo"/></a>
+
+            <p class="p_Titulo"> Sistema Nacional // Huella de Carbono </p>
+            <img class="org_icono" src="/img/Icono_Miembro.png" alt="miembro_icono">
+            <nav class="header_nav_login">
+                <ul>
+                    <li>Guia de recomendaciones</li>
+                </ul>
+            </nav>
+            {{else}}{{#if usuario.rol.id 3}}
+             <a href="/organizaciones/{{usuario.organizacion.razonSocial}}" name="Home">
+             <img class="img_logo_outline" src="/img/logo_outline.png"
+              onmouseover="this.src='/img/logo_relleno.png'"
+              onmouseout="this.src='/img/logo_outline.png'" alt="logo"/></a>
+
+             <p class="p_Titulo"> Sistema Nacional // Huella de Carbono </p>
+             <img class="org_icono" src="/img/Icono_Org.png" alt="organizacion_icono">
+             <nav class="header_nav_login">
+                 <ul>
+                     <li>Guia de recomendaciones</li>
+                 </ul>
+             </nav>
+            {{/if}}{{/if}}
+        </div>
+    </header>
+    <div class="div_body">
+        <img class = "home_BG" src="/img/BG_Guia_1.jpg" alt="Fondo">
+        <img class = "home_BG2" src="/img/BG_Guia_2.jpg" alt="Fondo2">
+        <div class = "guia_container">
+            <div class = "guia">
+                <div class="guia_titulo">
+                    <h1>GUIA DE RECOMENDACIONES</h1>
+                </div>                
+                <div class = "container">                
+                    <div class="tip">
+                        <img class="icono_izq" src="/img/Iconos_Guia_1.png" alt="icono1">
+                        <div class="item">Transmitir los valores éticos-ecológicos por igual a niños que a niñas...</div>
+                        <img class="flecha" src="/img/Icono_Flecha_Guia.png" alt="flecha">
+                        <div class="item">...es asegurar generaciones futuras con mayor grado de equidad social y ambiental (Gerd Johnsson, Revista Española de Sociología, 2015)</div>
+                        <img class="icono_der" src="/img/Iconos_Guia_4.png" alt="mundo">
+                    </div>  
+                    <div class="tip">
+                        <img class="icono_izq" src="/img/Iconos_Guia_2.png" alt="icono2">
+                        <div class="item">Utilizar el transporte público beneficia</div>
+                        <img class="flecha" src="/img/Icono_Flecha_Guia.png" alt="flecha">
+                        <div class="item">Un autobús lleva tanta gente como diez coches completamente llenos, ocupa tres veces menos espacio en la carretera y emite la mitad de CO2 por kilómetro y pasajero</div>
+                        <img class="icono_der" src="/img/Iconos_Guia_5.png" alt="transporte">
+                    </div>  
+                    <div class="tip">
+                        <img class="icono_izq" src="/img/Iconos_Guia_3.png" alt="icono3">
+                        <div class="item">Es importante hacer uso eficiente del vehículo particular</div>
+                        <img class="flecha" src="/img/Icono_Flecha_Guia.png" alt="flecha">
+                        <div class="item">No usar el coche en pequeños trayectos en los que se puede ir caminando. Con la bicicleta ahorras hasta 240 kg de CO2 al año</div>
+                        <img class="icono_der" src="/img/Iconos_Guia_7.png" alt="bici">
+                    </div>  
+                    <div class="tip">
+                        <img class="icono_izq" src="/img/guia_icono4.png" alt="icono4">
+                        <div class="item">Comprar electrodomésticos preferentemente de clase A (A++, A+, A)</div>
+                        <img class="flecha" src="/img/Icono_Flecha_Guia.png" alt="flecha">
+                        <div class="item">Aunque el precio de los electrodomésticos más eficientes es mayor, éste se compensa a lo largo de su vida útil por su menor consumo de electricidad y el ahorro del costo en la factura electrónica</div>
+                        <img class="icono_der" src="/img/guia_ahorro.png" alt="bici">
+                    </div>  
+                </div>            
+            </div>
+        </div>
+    </div>
+</body>
+</html>

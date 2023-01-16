@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> CO2 / Sistema Nacional Huella de Carbono </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/estilos_datos_org.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus&family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div>
+            <a href="/miembros/{{usuario.nombreDeUsuario}}" name="Home">
+            <img class="img_logo_outline" src="/img/logo_outline.png"
+                 onmouseover="this.src='/img/logo_relleno.png'"
+                 onmouseout="this.src='/img/logo_outline.png'" alt="logo"/></a>
+            <p class="p_Titulo"> Sistema Nacional // Huella de Carbono </p>
+            <div id="header">
+                <ul class="nav">
+                    <li> {{usuario.nombreDeUsuario}} <img class="miembro_icono" src="/img/miembro_icon.png" alt="miembro_icono">
+                        <ul>
+                            <li><a href="/miembros/{{usuario.nombreDeUsuario}}/huellaCarbono">Calcular HC</a></li>
+                            <li><a href="/miembros/{{usuario.nombreDeUsuario}}/recomendacion">Guia de Recomendaciones</a></li>
+                            <li><a href="/login/miembro/logout">Salir</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="div_body">
+        <img class = "home_BG" src="/img/org_reg_bg.png" alt="Fondo">
+        <img class = "home_BG2" src="/img/org_reg_bg2.png" alt="Fondo2">
+        <form class = "form_datos" action="/organizaciones/{{usuario.nombreDeUsuario}}/editar" method="get">
+            <div class="form_titulo_tr">
+                <h1>DATOS ORGANIZACION</h1>
+            </div>
+
+            <div class="dato">
+                <h3>{{organizacion.razonSocial}} </h3>
+            </div>
+
+            <div class="dato">
+                <h3>{{organizacion.tipo}} </h3>
+            </div>
+
+            <div class="dato">
+                <h3>{{organizacion.clasificacionOrg.nombre}} </h3>
+            </div>
+
+            <div class="subtitulo">
+                <h2>UBICACION</h2>
+            </div>
+
+
+            <div class="dato">
+                <h3>{{organizacion.ubicacionGeografica.direccion}} </h3>
+            </div>
+
+            <div class="dato">
+                <h3>{{organizacion.ubicacionGeografica.altura}} </h3>
+            </div>
+
+            <div class="dato">
+                <h3>{{organizacion.ubicacionGeografica.provincia.nombre}} </h3>
+            </div>
+
+            <div class="dato">
+                <h3>{{organizacion.ubicacionGeografica.municipio.nombre}} </h3>
+            </div>
+            <div class="subtitulo">
+                <h2>SECTORES</h2>
+            </div>
+
+            {{#each organizacion.sectores}}
+            <div class="dato">
+                <h3>{{nombre}}</h3>
+            </div>
+            {{/each}}
+        </form>
+    </div>
+</body>
+
+</html>

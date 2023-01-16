@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> CO2 / Sistema Nacional Huella de Carbono </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/estilos_reporte_org.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus&family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div>
+        <a href="/organizaciones/{{organizacion.razonSocial}}" name="Home">
+            <img class="img_logo_outline" src="/img/logo_outline.png"
+                 onmouseover="this.src='/img/logo_relleno.png'"
+                 onmouseout="this.src='/img/logo_outline.png'" alt="logo"/></a>
+        <p class="p_Titulo"> Sistema Nacional // Huella de Carbono </p>
+        <div id="header">
+            <ul class="nav">
+                <li> {{organizacion.razonSocial}} <img class="miembro_icono" src="/img/Icono_Org.png" alt="miembro_icono">
+                    <ul>
+                        <li><a href="/organizaciones/{{usuario.nombreDeUsuario}}/mediciones">Calcular HC</a></li>
+                        <li><a href="/organizaciones/{{usuario.nombreDeUsuario}}/recomendacion">Guia de Recomendaciones</a></li>
+                        <li><a href="/organizaciones/{{organizacion.id}}/solicitudes">Solicitud de Vinculacion</a></li>
+                        <li><a href="/organizaciones/{{organizacion.id}}/reportes">Generar Reportes</a></li>
+                        <li><a href="/login/organizacion/logout">Salir</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+    <div class="div_body">
+        <img class = "home_BG" src="/img/org_reg_bg.png" alt="Fondo">
+        <img class = "home_BG2" src="/img/org_reg_bg2.png" alt="Fondo2">
+            <form class = "form_datos">
+                <div class="form_titulo_tr">
+                    <h1>{{usuario.razonSocial}}</h1> <!--aca va el nombre de la organizacion-->
+                </div>  
+
+                <div class="subtitulo">
+                    <h2>Año Del Reporte:</h2>
+                </div> 
+
+                <select class="options">
+                    <option class="option">SELECCIONAR</option> <!--año del reporte deseado, se supone que se abren opciones de varios años (del primero al ultimo)-->
+                </select>
+
+                <div class="subtitulo">
+                    <a>Huella De Carbono Total Del Año</a>
+                    <a class="dato_num">XXXX</a> <!--este es el mismo año que se selecciono arriba-->
+                    <a>:</a>
+                </div> 
+                
+                <div class="subtitulo_hc">
+                    <a>5000</a> <!--huella total de la organizacion de el año solicitado-->
+                </div> 
+
+                <div class="subtitulo">
+                    <h2>Huella De Carbono Por Sector:</h2>
+                </div>
+                {{#each reporteOrganizacion}}
+                <div class="dato">             <!--este sería el each de huella por sector-->
+                    <a>• {{@key.nombre}}</a> <!--sector-->
+                    <a class="dato_num">{{this}}</a>  <!--valor de huella-->
+                </div>
+                {{/each}}
+            </form>
+
+            <form class="form_evolucion">
+                <div class="form_titulo_tr">
+                    <h1>EVOLUCION</h1>
+                </div>
+
+                {{#each reporteEvolucionOrganizacion}}
+                <div class="dato">
+                    <a>• {{@key}}</a>   <!--año-->
+                    <a class="dato_num">{{this}}</a> <!--valor de huella-->
+                </div>
+                {{/each}}
+            </form>
+        </div>
+    </body>
+    
+    </html>
