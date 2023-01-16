@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> CO2 / Sistema Nacional Huella de Carbono </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/estilos_datos_org.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus&family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div>
+            <a href="/organizaciones/{{organizacion.razonSocial}}" name="Home">
+            <img class="img_logo_outline" src="/img/logo_outline.png"
+             onmouseover="this.src='/img/logo_relleno.png'"
+             onmouseout="this.src='/img/logo_outline.png'" alt="logo"/></a>
+            <p class="p_Titulo"> Sistema Nacional // Huella de Carbono </p>
+            {{#esAdmin usuarioLogueado.rol.id}}
+                <div id="header">
+                    <ul class="nav">
+                        <li> Admin <img class="miembro_icono" src="/img/miembro_icon.png" alt="miembro_icono">
+                            <ul>
+                                <li><a href="/admin/abm/miembro">Miembros</a></li>
+                                <li><a href="/admin/abm/org">Organizaciones</a></li>
+                                <li><a href="/admin/abm/fe">Factores de Emision</a></li>
+                                <!--<li><a href="/admin/abm/provincia">Provincias</a></li>-->
+                                <li><a href="/login/miembro/logout">Salir</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            {{/esAdmin}}
+            {{#esOrg usuarioLogueado.rol.id}}
+            <div id="header">
+                <ul class="nav">
+                    <li> {{organizacion.razonSocial}} <img class="miembro_icono" src="/img/Icono_Org.png" alt="miembro_icono">
+                        <ul>
+                            <li><a href="/organizaciones/{{usuario.nombreDeUsuario}}/mediciones">Cargar Mediciones</a></li>
+                            <li><a href="/organizaciones/{{usuario.nombreDeUsuario}}/huellaCarbono">Calcular Huella</a></li>
+                            <li><a href="/organizaciones/{{usuario.nombreDeUsuario}}/recomendacion">Guia de Recomendaciones</a></li>
+                            <li><a href="/organizaciones/{{organizacion.id}}/solicitudes">Solicitud de Vinculacion</a></li>
+                            <li><a href="/organizaciones/{{organizacion.id}}/reportes">Generar reportes</a></li>
+                            <li><a href="/login/organizacion/logout">Salir</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            {{/esOrg}}
+        </div>
+    </header>
+    <div class="div_body">
+        <img class = "home_BG" src="/img/org_reg_bg.png" alt="Fondo">
+        <img class = "home_BG2" src="/img/org_reg_bg2.png" alt="Fondo2">
+        <form class = "form_datos" action="/organizaciones/{{usuario.nombreDeUsuario}}/editar" method="post">
+            <div class="form_titulo_tr">
+                <h1>DATOS ORGANIZACION</h1>
+            </div>
+
+            <div class="dato">
+                <input class = "text_input" name="razonSocial" placeholder="NOMBRE" value="{{organizacion.razonSocial}}" required>
+            </div>
+
+            <select class="options" id="tipoOrgSel" name="tipoOrgSel" required>
+                <option value="{{organizacion.tipo}}" selected disabled hidden>{{organizacion.tipo}}</option>
+                <option class="option" value="ONG">ONG</option>
+                <option class="option" value="GUBERNAMENTAL">GUBERNAMENTAL</option>
+                <option class="option" value="EMPRESA">EMPRESA</option>
+                <option class="option" value="INSTITUCION">INSTITUCION</option>
+            </select>
+
+            <select class="options" id="clasificacionSel" name="clasificacionSel" required>
+                <option value="{{organizacion.clasificacionOrg.nombre}}" selected disabled hidden>{{organizacion.clasificacionOrg.nombre}}</option>
+                {{#each clasificaciones}}
+                    <option class="option" value="{{nombre}}">{{nombre}}</option>
+                {{/each}}
+            </select>
+
+            <div class="subtitulo">
+                <h2>UBICACION</h2>
+            </div>
+
+            <div class="dato">
+                <input class = "text_input" name="calle" placeholder="CALLE" value="{{organizacion.ubicacionGeografica.direccion}}" required>
+            </div>
+            <div class="dato">
+                <input class = "text_input"  name="altura" placeholder="ALTURA" value="{{organizacion.ubicacionGeografica.altura}}" required>
+            </div>
+
+
+            <select class="options" id="provinciaSel" name="provincia" required>
+                <option value="{{organizacion.ubicacionGeografica.provincia.nombre}}" selected disabled hidden>{{organizacion.ubicacionGeografica.provincia.nombre}}</option>
+                {{#each provincias}}
+                    <option class="option" value="{{nombre}}">{{nombre}}</option>
+                {{/each}}
+            </select>
+
+            <select class="options" id="muniSel" name="municipio" required>
+                <option value="{{organizacion.ubicacionGeografica.municipio.nombre}}" selected disabled hidden>{{organizacion.ubicacionGeografica.municipio.nombre}}</option>
+            </select>
+
+            <div class="subtitulo">
+                <input class = "editar" type="submit" value="EDITAR" />
+            </div>
+            <div class="subtitulo">
+                <h2>SECTORES</h2>
+            </div>
+
+            {{#each organizacion.sectores}}
+            <div class="dato">
+                <h3>{{nombre}}</h3>
+            </div>
+            {{/each}}
+        </form>
+
+
+                <!--
+                <form class="form_vincular">
+
+
+                    <div class="container_vinculacion">
+                        <button class="button_vincular" href="/calculadora_hc_org.hbs">CALCULAR HUELLA DE CARBONO</button>
+                    </div>
+
+                </form>
+                -->
+            </div>
+        </body>
+
+        </html>
+        <script src="/js/datosOrg.js" charset="utf-8"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

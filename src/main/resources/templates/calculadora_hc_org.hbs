@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> CO2 / Sistema Nacional Huella de Carbono </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/estilos_calculadora_hc_org.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus&family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+    <a href="/organizaciones/{{usuario.organizacion.razonSocial}}" name="Home">
+    <img class="img_logo_outline" src="/img/logo_outline.png"
+         onmouseover="this.src='/img/logo_relleno.png'"
+         onmouseout="this.src='/img/logo_outline.png'" alt="logo"/></a>
+    <p class="p_Titulo"> Sistema Nacional // Huella de Carbono </p>
+        <div id="header">
+            <ul class="nav">
+                <li> {{usuario.organizacion.razonSocial}} <img class="miembro_icono" src="/img/Icono_Org.png" alt="miembro_icono">
+                    <ul>
+                        <li><a href="/organizaciones/{{usuario.nombreDeUsuario}}/mediciones">Cargar Mediciones</a></li>
+                        <!--<li><a href="/organizaciones/{{usuario.nombreDeUsuario}}/huellaCarbono">Calcular Huella</a></li>-->
+                        <li><a href="/organizaciones/{{usuario.nombreDeUsuario}}/recomendacion">Guia de Recomendaciones</a></li>
+                        <li><a href="/organizaciones/{{usuario.organizacion.id}}/solicitudes">Solicitud de Vinculacion</a></li>
+                        <li><a href="/login/organizacion/logout">Salir</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="div_body">
+        <img class = "home_BG" src="/img/org_reg_bg.png" alt="Fondo">
+        <img class = "home_BG2" src="/img/org_reg_bg2.png" alt="Fondo2">
+        <div class = "form_container">
+            <form class = "form_hc" action="/organizaciones/{{usuario.nombreDeUsuario}}/huellaCarbono" method="post">
+                <div class="form_titulo">
+                <h1>ORGANIZACION</h1>
+                </div>  
+
+                <div class="form_subtitulo">
+                    <h1>HUELLA TOTAL ORGANIZACION</h1>
+                </div> 
+
+                <div class = "container">
+                    <select class="options" name="periodoSel" required>
+                        <option value="">SELECCIONE PERIODICIDAD</option>
+                        <option value="ANUAL">ANUAL</option>
+                        <option value="MENSUAL">MENSUAL</option>
+                    </select>
+
+                    <select class="options" name="mesSel" required>
+                        <option value="">SELECCIONE MES</option>
+                        <option value="1">Enero</option>
+                        <option value="2">Febrero</option>
+                        <option value="3">Marzo</option>
+                        <option value="4">Abril</option>
+                        <option value="5">Mayo</option>
+                        <option value="6">Junio</option>
+                        <option value="7">Julio</option>
+                        <option value="8">Agosto</option>
+                        <option value="9">Septiembre</option>
+                        <option value="10">Octubre</option>
+                        <option value="11">Noviembre</option>
+                        <option value="12">Diciembre</option>
+                    </select>
+
+                    <select class="options" name="anioSel" required>
+                        <option value="">SELECCIONE AÑO</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                    </select>
+
+                    <div class="button_hc">
+                        <input type="submit" value="CALCULAR HUELLA" />
+                    </div>
+                </div>
+                <div class="form_titulo">
+                    <div class="container">
+                        <div class="form_subtitulo">
+                            <h2>{{huellaStr}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <!--
+                <div class="form_subtitulo">
+                    <h1>HUELLA SECTOR</h1>
+                </div> 
+
+                <select class="options">
+                    <option>SELECCIONE SECTOR</option>
+                    <option>SELECCIONE SECTOR</option>
+                    <option>SELECCIONE SECTOR</option>
+                    <option>SELECCIONE SECTOR</option>
+                </select>
+
+                <div class = "container">
+                    <select class="options">
+                        <option>SELECCIONE PERIODICIDAD</option>
+                        <option>SELECCIONE PERIODICIDAD</option>
+                        <option>SELECCIONE PERIODICIDAD</option>
+                        <option>SELECCIONE PERIODICIDAD</option>
+                    </select>
+    
+                    <select class="options">
+                        <option>SELECCIONE MES</option>
+                        <option>SELECCIONE MES</option>
+                        <option>SELECCIONE MES</option>
+                        <option>SELECCIONE MES</option>
+                    </select>
+    
+                    <select class="options">
+                        <option>SELECCIONE AÑO</option>
+                        <option>SELECCIONE AÑO</option>
+                        <option>SELECCIONE AÑO</option>
+                        <option>SELECCIONE AÑO</option>
+                    </select>
+
+                    <div class="button_hc">
+                        <p>CALCULAR HUELLA</p>
+                    </div>
+                </div>-->
+                
+            </form>
+        </div>
+    </div>
+</body>
+</html>
